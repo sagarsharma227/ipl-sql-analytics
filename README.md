@@ -38,21 +38,18 @@ This project uses three cleaned IPL datasets to answer practical cricket-analysi
 | `06_performance_optimization.sql` | Index and query-plan examples. |
 | `07_routines_demo.sql` | Reusable SQL function example. |
 | `metric_definitions.md` | Definitions, exclusions, and calculation rules for the reported metrics. |
-| `matches_cleaned.csv` | Match-level IPL data. |
-| `deliveries_cleaned.csv` | Ball-by-ball IPL delivery data. |
-| `player_country_cleaned.csv` | Player nationality lookup data. |
 
 ## Dataset relationship
 
 ```text
-matches_cleaned
+matches
     match_id
        |
        | one-to-many
        v
-deliveries_cleaned
+deliveries
 
-player_country_cleaned
+player_country
     player_name -> batsman / bowler names after trimming and lowercasing
 ```
 
@@ -60,7 +57,7 @@ player_country_cleaned
 
 1. Create an empty PostgreSQL database.
 2. Run `00_create_tables.sql`.
-3. Import `matches_cleaned.csv`, `deliveries_cleaned.csv`, and `player_country_cleaned.csv` into the matching tables.
+3. Import `matches.csv`, `deliveries.csv`, and `player_country.csv` into the matching tables.
 4. Run `01_validate_data.sql` and review the results.
 5. Run the analysis scripts from `02_team_analysis.sql` through `05_advanced_analytics.sql`.
 6. Run `06_performance_optimization.sql` only after the data is imported.
